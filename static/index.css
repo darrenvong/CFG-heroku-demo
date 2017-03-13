@@ -1,0 +1,52 @@
+/* Usage: font-family: 'Pacifico', cursive; */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  padding-top: 15px;
+}
+
+a.waves-effect {
+  position: absolute;
+  left: 50%;
+  top: 500px;
+  transform: translateX(-50%);
+}
+
+h3 {
+  font-family: 'Pacifico', cursive;
+  position: absolute;
+  top: 84px;
+  padding-top: 10px;
+  color: #c72945;
+}
+
+img, .one, .two, .three, .four {
+  position: absolute;
+  font-size: 24px
+}
+
+.absolute-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.one {
+  top: 180px;
+}
+
+.two {
+  top: 260px;
+}
+
+.three {
+  top: 305px;
+}
+
+.four {
+  top: 350px;
+}
