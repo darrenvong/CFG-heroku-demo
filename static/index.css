@@ -25,28 +25,25 @@ h3 {
   color: #c72945;
 }
 
-img, .one, .two, .three, .four {
+img, #description {
   position: absolute;
   font-size: 24px
+}
+
+#description {
+  top: 170px;
+}
+
+.one, .two, .three, .four {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.reveal {
+  opacity: 1;
 }
 
 .absolute-center {
   left: 50%;
   transform: translateX(-50%);
-}
-
-.one {
-  top: 180px;
-}
-
-.two {
-  top: 260px;
-}
-
-.three {
-  top: 305px;
-}
-
-.four {
-  top: 350px;
 }

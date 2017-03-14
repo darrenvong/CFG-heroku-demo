@@ -8,15 +8,33 @@
 <body>
   <img class="absolute-center" src="{{ url_for('static', filename='cfg_logo.png') }}">
   <h3 class="absolute-center">Ambassadors Appreciation</h3>
-  <p class="absolute-center center-align one">First of all, a big thank you to Pauline and Sophia for being such awesome ambassadors for our course!</p>
-  <p class="absolute-center center-align two">If you haven't already, you should follow them on Twitter!</p>
-  <p class="absolute-center center-align three">Especially @paulienuh - I heard she's pretty cool.</p>
-  <p class="absolute-center center-align four">In fact, let's check out what she's been posting lately!</p>
-  <a class="waves-effect waves-light btn btn-large red lighten-4" href="#">LET'S GO</a>
+  <div id="description" class="absolute-center center-align">
+    <p class="one">First of all, a big thank you to Pauline and Sophia for being such awesome ambassadors for our course!</p>
+    <p class="two">If you haven't already, you should follow them on Twitter!</p>
+    <p class="three">Especially @paulienuh - I heard she's pretty cool.</p>
+    <p class="four">In fact, let's check out what she's been tweeting lately!</p>
+  </div>
+  <a class="waves-effect waves-light btn btn-large red darken-2" href="{{url_for('latest_tweets')}}">LET'S GO</a>
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const MAX_PARAGRAPHS = 4;
+      let counter = 0;
+
+      let periodicCall = setInterval(function() {
+        counter++;
+        if (counter <= MAX_PARAGRAPHS) {
+          $("#description p:nth-of-type("+counter+")").toggleClass("reveal");
+        }
+        else {
+          clearInterval(periodicCall);
+        }
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
