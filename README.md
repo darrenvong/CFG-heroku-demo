@@ -1,2 +1,49 @@
 # CFG-heroku-demo
 A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to deploy to Heroku
+
+## Steps to deploy to Heroku
+0. Before you start to deploy your app, check that you have the following two files at the **root folder** of your application:
+   * A `Procfile` which has the Command Prompt/Terminal command telling Heroku exactly how to start/run your application.
+   This file normally contains only the following line:
+   ```
+   web: python [name_of_your_flask_file].py
+   ```
+   Replace `[name_of_your_flask_file]` with the actual name of your file containing your Flask code.
+   In case you're curious: the `web:` part before the command basically tells Heroku to run your Python code as a web application.
+   
+   * A `requirements.txt` file which lists all the external libraries (such as `Flask` and `tweepy`) required
+   by your application, so that Heroku knows to install them before trying to run your application. To generate this file,
+   in the **root folder** of your application, type: `pip freeze > requirements.txt` in the Command Prompt/Terminal.
+
+1. If you haven't already, go make a Heroku account at https://www.heroku.com
+
+2. Once you have made a Heroku account, upon logging in, you will be taken to a dashboard, which looks something like the
+following:
+
+![alt text](static/md_imgs/dashboard.png "Heroku Dashboard")
+
+3. To deploy the app, we need to make one first on Heroku, so do that by clicking New > Create New app (button at top right of
+dashboard)
+
+4. Type in the name of your application, change the Runtime Selection to "Europe" - this is so that the application loads
+faster as we are geographically closer to Europe than the United States. Finally, click "Create App".
+
+![alt text](static/md_imgs/create_app.png "Create app screen")
+
+5. After clicking "Create App", you should be greeted with the following screen:
+
+![alt text](static/md_imgs/config.png "App configuration screen")
+
+6. Under "Deployment Method", change it to "GitHub". A "Connect to GitHub" should now appear.
+
+7. Under the "Connect to GitHub" that just appeared, search for the GitHub repository corresponding to your project, then
+click "Connect" to link the relevant repository (appeared as a result of the search) to the Heroku application you've just created.
+
+8. To deploy your project, simply click "Deploy Branch" under "Manual deploy".
+
+9. (Optional) You may have just noticed that a section named "Automatic deploys" has appeared in addition to the "Manual deploy"
+section once you have connected your GitHub repository properly. To save you having to come back to this page in the future
+and click "Deploy Branch" each time you pushed something new to your repository, if you click "Enable Automatic Deploys", then
+Heroku will do so automatically.
+
+Congratulations! You have now successfully deployed your application to Heroku!
