@@ -13,7 +13,7 @@ def get_funny_tweets(url, params={}, headers={}):
     {"tweet": "...", "time": "...", "images": ["...", "..."]} (images list may be empty)
     """
     my_funny_req = requests.get(url, params=params, headers=headers)
-    parser = BeautifulSoup(my_funny_req.text, "lxml")
+    parser = BeautifulSoup(my_funny_req.text, "html.parser")
     full_tweets = parser.select(".tweet .content")
 
     # super compact way of returning a list of dictionaries using a construct known
