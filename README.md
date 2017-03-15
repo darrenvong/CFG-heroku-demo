@@ -14,6 +14,12 @@ A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to
    * Make the `requirements.txt` file (in the **root folder** of your application) which lists all the external libraries (such as `Flask` and `tweepy`) required
    by your application, so that Heroku knows to install them before trying to run your application. To generate this file,
    in the **root folder** of your application, type: `pip freeze > requirements.txt` in the Command Prompt/Terminal.
+   
+   **Note: In some cases (writing from personal experience here!), the command `pip freeze > requirements.txt` puts in
+   *weird* library dependencies such as `tweepy==0.0.0` (this is just a made up example, it shouldn't happen with `tweepy`...),
+   which may prevent your application from building and deploying correctly as Heroku can't download/find/install version 0 of
+   a library. Therefore, it is perhaps worth double checking that these weird dependencies didn't creep in
+   your `requirements.txt` file first before deploying your application.**
 
    * In `[name_of_your_flask_file].py`, add the following line to the top of your Flask code:
    ```python
@@ -33,9 +39,9 @@ A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to
    else:
         app.run(debug=True)
    ```
-   Again, for the curious: this piece of conditional logic simply checks whether you are running your application on Heroku
+   Again, for the curious: this piece of conditional logic checks whether you are running your application on Heroku
    (in which case, the `PORT` environment variable would exist), or if you are running your application locally. The
-   `host=0.0.0.0` bit simply instructs your Flask application to listen on **all** web address. This is important to ensure
+   `host=0.0.0.0` bit instructs your Flask application to listen on **all** web address. This is important to ensure
    the application runs on Heroku since we don't know which host Heroku will decide to host the application on.
 
 1. If you haven't already, go make a Heroku account at https://www.heroku.com
@@ -45,10 +51,10 @@ following:
 
 ![alt text](static/md_imgs/dashboard.png "Heroku Dashboard")
 
-3. To deploy the app, we need to make one first on Heroku, so do that by clicking New > Create New app (button at top right of
+3. To deploy the app, we need to make one first on Heroku, so do that by clicking New > Create New app (button at top right of the
 dashboard)
 
-4. Type in the name of your application, change the Runtime Selection to "Europe" - this is so that the application loads
+4. Type in the name of your application, and change the Runtime Selection to "Europe" - this is so that the application loads
 faster as we are geographically closer to Europe than the United States. Finally, click "Create App".
 
 ![alt text](static/md_imgs/create_app.png "Create app screen")
@@ -57,12 +63,12 @@ faster as we are geographically closer to Europe than the United States. Finally
 
 ![alt text](static/md_imgs/config.png "App configuration screen")
 
-6. Under "Deployment Method", change it to "GitHub". A "Connect to GitHub" should now appear.
+6. Under "Deployment Method", change it to "GitHub". A "Connect to GitHub" section should now appear.
 
-7. Under the "Connect to GitHub" that just appeared, search for the GitHub repository corresponding to your project, then
+7. Under the "Connect to GitHub" section that just appeared, search for the GitHub repository corresponding to your project, then
 click "Connect" to link the relevant repository (appeared as a result of the search) to the Heroku application you've just created.
 
-8. To deploy your project, simply click "Deploy Branch" under "Manual deploy".
+8. To deploy your project, click "Deploy Branch" under "Manual deploy".
 
 9. (Optional) You may have just noticed that a section named "Automatic deploys" has appeared in addition to the "Manual deploy"
 section once you have connected your GitHub repository properly. To save you having to come back to this page in the future
