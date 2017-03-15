@@ -3,7 +3,7 @@ A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to
 
 ## Steps to deploy to Heroku
 0. Before you start to deploy your app, do the following chores first:
-   * A `Procfile` in the **root folder** of your application. This file contains the Command Prompt/Terminal command telling Heroku exactly how to start/run your application.
+   * Make a `Procfile` in the **root folder** of your application. This file contains the Command Prompt/Terminal command telling Heroku exactly how to start/run your application.
    It normally contains only the following line:
    ```
    web: python [name_of_your_flask_file].py
@@ -11,7 +11,7 @@ A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to
    Replace `[name_of_your_flask_file]` with the actual name of your file containing your Flask code.
    In case you're curious: the `web:` part before the command basically tells Heroku to run your Python code as a web application.
    
-   * A `requirements.txt` file (in the **root folder** of your application) which lists all the external libraries (such as `Flask` and `tweepy`) required
+   * Make the `requirements.txt` file (in the **root folder** of your application) which lists all the external libraries (such as `Flask` and `tweepy`) required
    by your application, so that Heroku knows to install them before trying to run your application. To generate this file,
    in the **root folder** of your application, type: `pip freeze > requirements.txt` in the Command Prompt/Terminal.
 
