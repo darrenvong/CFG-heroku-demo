@@ -12,15 +12,13 @@ A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to
    In case you're curious: the `web:` part before the command basically tells Heroku to run your Python code as a web application.
    
    * Make the `requirements.txt` file (in the **root folder** of your application) which lists all the external libraries (such as `Flask` and `tweepy`) required
-   by your application, so that Heroku knows to install them before trying to run your application. To generate this file,
-   in the **root folder** of your application, type: `pip freeze > requirements.txt` in the Command Prompt/Terminal.
+   by your application, so that Heroku knows exactly the required libraries to install before trying to run your application.
+   In this file, type in the libraries your application require line by line, which may look something like the following:
+   ```
+   flask
+   tweepy
+   ```
    
-   **Note: In some cases (writing from personal experience here!), the command `pip freeze > requirements.txt` puts in
-   *weird* library dependencies such as `tweepy==0.0.0` (this is just a made up example, it shouldn't happen with `tweepy`...),
-   which may prevent your application from building and deploying correctly as Heroku can't download/find/install version 0 of
-   a library. Therefore, it is perhaps worth double checking that these weird dependencies didn't creep in
-   your `requirements.txt` file first before deploying your application.**
-
    * In `[name_of_your_flask_file].py`, add the following line to the top of your Flask code:
    ```python
    import os
