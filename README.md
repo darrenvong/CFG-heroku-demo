@@ -1,7 +1,7 @@
 # CFG-heroku-demo
 A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to deploy a web app to Heroku.
 **Disclaimer: this app is made *only* to show the core files needed to successfully deploy to Heroku with minimal fuss.
-Therefore, the quality of the app is not perfect (e.g. it is not fully mobile responsive etc).**
+Therefore, the quality of the app is not perfect ~~(e.g. it is not fully mobile responsive etc)~~ but now it IS responsive!**
 
 ## Steps to deploy to Heroku
 0. Before you start to deploy your app, do the following chores first:
