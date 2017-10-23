@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <title>CF:G Sheffield Ambassador Appreciation App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
 </head>
 <body>
-  <img class="absolute-center" src="{{ url_for('static', filename='cfg_logo.png') }}">
-  <h3 class="absolute-center">Ambassadors Appreciation</h3>
-  <div id="description" class="absolute-center center-align">
-    <p class="one">First of all, a big thank you to Pauline and Sophia for being such awesome ambassadors for our course!</p>
+  <img src="{{ url_for('static', filename='cfg_logo.png') }}">
+  <h3>Ambassadors Appreciation</h3>
+  <div id="description" class="center-align">
+    <p class="one">First of all, a big thank you to Pauline and <s>Sophia</s>
+      (but we still love you 💖) Lakshika for being such awesome ambassadors for our course!
+    </p>
     <p class="two">If you haven't already, you should follow them on Twitter!</p>
     <p class="three">Especially @paulienuh - I heard she's pretty cool.</p>
-    <p class="four">In fact, let's check out what she's been tweeting lately!</p>
+    <p class="four">In fact, let's check out what she's been blogging/tweeting lately!</p>
   </div>
   <a class="waves-effect waves-light btn btn-large red darken-2" href="{{url_for('latest_tweets')}}">LET'S GO</a>
   <script

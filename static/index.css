@@ -8,30 +8,26 @@ html, body {
 body {
   position: relative;
   padding-top: 15px;
+  text-align: center;
 }
 
 a.waves-effect {
-  position: absolute;
-  left: 50%;
-  top: 500px;
-  transform: translateX(-50%);
+  margin-top: 20px;
 }
 
 h3 {
   font-family: 'Pacifico', cursive;
-  position: absolute;
-  top: 84px;
-  padding-top: 10px;
   color: #c72945;
 }
 
-img, #description {
+/* img, #description {
   position: absolute;
   font-size: 24px
-}
+} */
 
 #description {
-  top: 170px;
+  font-size: 24px;
+  margin: 0 10%;
 }
 
 .one, .two, .three, .four, .waves-effect {
@@ -43,7 +39,14 @@ img, #description {
   opacity: 1;
 }
 
-.absolute-center {
-  left: 50%;
-  transform: translateX(-50%);
+@media screen and (max-width: 768px) {
+  #description {
+    margin: 0 15px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  a.waves-effect {
+    margin-bottom: 30px;
+  }
 }
