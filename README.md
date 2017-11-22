@@ -19,6 +19,7 @@ Therefore, the quality of the app is not perfect (e.g. it is not fully mobile re
    ```
    flask
    tweepy
+   requests
    ```
    
    * In `[name_of_your_flask_file].py`, add the following line to the top of your Flask code:
