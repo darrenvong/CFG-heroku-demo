@@ -1,28 +1,31 @@
 # CFG-heroku-demo
 A light-hearted CF:G Sheffield Ambassador appreciation app to demonstrate how to deploy a web app to Heroku.
 **Disclaimer: this app is made *only* to show the core files needed to successfully deploy to Heroku with minimal fuss.
-Therefore, the quality of the app is not perfect (e.g. it is not fully mobile responsive etc).**
+Therefore, the quality of the app is not perfect ~~(e.g. it is not fully mobile responsive etc)~~ but now it IS responsive!**
 
 ## Steps to deploy to Heroku
-0. Before you start to deploy your app, do the following chores first:
+0. Before you start to deploy your app, there are some chores we need to do first:
    * Make a `Procfile` in the **root folder** of your application. This file contains the Command Prompt/Terminal command telling Heroku exactly how to start/run your application.
    It normally contains only the following line:
    ```
-   web: python [name_of_your_flask_file].py
+   web: python app.py
    ```
-   Replace `[name_of_your_flask_file]` with the actual name of your file containing your Flask code.
+   Replace `app.py` with the actual name of your file containing your Flask code if you named it something different.
    In case you're curious: the `web:` part before the command basically tells Heroku to run your Python code as a web application.
    
-   * Make the `requirements.txt` file (in the **root folder** of your application) which lists all the external libraries (such as `Flask` and `tweepy`) required
-   by your application, so that Heroku knows exactly the required libraries to install before trying to run your application.
+   * Make a file named `requirements.txt` in the **root folder** of your application. This file lists all the external libraries
+   (such as `Flask` and `tweepy`) required by your application, so that Heroku knows exactly the required libraries to install
+   before trying to run your application.
    In this file, type in the libraries your application require line by line, which may look something like the following:
    ```
    flask
+   requests
    tweepy
    requests
    ```
    
-   * In `[name_of_your_flask_file].py`, add the following line to the top of your Flask code:
+   * In `app.py` (or whatever you named your main file containing the Flask code), add the following line to the top
+   of your Flask code:
    ```python
    import os
    ```
@@ -52,7 +55,7 @@ following:
 
 ![alt text](static/md_imgs/dashboard.png "Heroku Dashboard")
 
-3. To deploy the app, we need to make one first on Heroku, so do that by clicking New > Create New app (button at top right of the
+3. To deploy the app, we need to make one first on Heroku, so do that by clicking **New > Create New app** (button at top right of the
 dashboard)
 
 4. Type in the name of your application, and change the Runtime Selection to "Europe" - this is so that the application loads
