@@ -6,20 +6,32 @@ body {
   position: relative;
 }
 
+#triggered {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 60px) scale(2);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+}
+
 .pre-loader {
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 36px;
 }
 
-.pre-loader, .container {
+.pre-loader, .container, .init-hidden {
   transition: opacity 0.5s;
 }
 
-.container {
+.init-hidden, .container {
   opacity: 0;
+}
+
+.container {
   transition-delay: 0.5s;
 }
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from random import randrange
+from calendar import monthrange
 from bs4 import BeautifulSoup
 import requests
 
@@ -7,9 +8,14 @@ AGENT_NAME = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefo
 HEADERS = {"User-Agent": AGENT_NAME}
 
 def query_builder():
-    funny_tweet_periods = ["since:2011-12-01 until:2011-12-31", "since:2012-03-01 until:2012-04-01",
-                           "since:2013-07-31 until:2013-08-31"]
-    return "from:paulienuh " + funny_tweet_periods[randrange(3)]
+    random_year, random_month = randrange(2011, 2014), randrange(1, 13)
+    last_day_of_random_month = monthrange(random_year, random_month)[1]
+    if random_month < 10:
+        random_month = f"0{random_month}"
+    
+    funny_tweet_periods = (f"from:paulienuh since:{random_year}-{random_month}-01 " +
+                           f"until:{random_year}-{random_month}-{last_day_of_random_month}")    
+    return funny_tweet_periods
 
 def get_funny_tweets(url, params={}, headers={}):
     """Retrieves a list of funny tweets in the following format:

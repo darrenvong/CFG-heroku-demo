@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.htm.j2")
+    return render_template("index.html")
 
 @app.route('/latest_pauline_tweets')
 def latest_tweets():
@@ -19,7 +19,7 @@ def latest_tweets():
     date_matcher = re.compile("\d+-\d+-\d+")
     start_date, end_date = date_matcher.findall(params["q"])
 
-    return render_template("display_tweets.htm.j2", tweets=tweet_objs,
+    return render_template("display_tweets.html", tweets=tweet_objs,
                             start=start_date, end=end_date)
 
 if __name__ == '__main__':
