@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", title="CF:G Sheffield Ambassador Appreciation App")
 
 @app.route('/latest_pauline_tweets')
 def latest_tweets():
@@ -20,7 +20,8 @@ def latest_tweets():
     start_date, end_date = date_matcher.findall(params["q"])
 
     return render_template("display_tweets.html", tweets=tweet_objs,
-                            start=start_date, end=end_date)
+                            start=start_date, end=end_date,
+                            title=f"Tweets by @paulienuh... from {start_date} to {end_date}")
 
 if __name__ == '__main__':
     if 'PORT' in os.environ:

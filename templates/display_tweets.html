@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Tweets by @paulienuh... from {{start}} to {{end}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='display_tweets.css')}}">
+{% include "header.html" %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/display_tweets.css')}}">
 </head>
 <body>
   <div class="pre-loader">
@@ -12,7 +7,7 @@
     <p class="center-align init-hidden">
       Pauline: <span class="init-hidden">are</span> <span class="init-hidden">you</span>
     </p>
-    <img id="triggered" class="init-hidden" src="{{ url_for('static', filename='triggered.gif') }}" alt="triggered">
+    <img id="triggered" class="init-hidden" src="{{ url_for('static', filename='img/triggered.gif') }}" alt="triggered">
   </div>
   <div class="container">
     <h3>Tweets by @paulienuh in {{ start.split("-")[0] }}</h3>
@@ -32,32 +27,6 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      const NUM_TEXT_TO_REVEAL = 3;
-      let num_revealed = 0;
-
-      let periodicCall = setInterval(() => {
-        if (num_revealed < NUM_TEXT_TO_REVEAL) {
-          $(".init-hidden")[num_revealed].classList.add("reveal");
-          num_revealed++;
-        }
-        else {
-          // Additional delay for the dramatic gif reveal
-          setTimeout(() => {
-            $("#triggered").addClass("reveal");
-
-            // Give the user some time to see the funny screen before fading out...
-            setTimeout(() => {
-              $(".pre-loader").css("opacity", "0");
-              $(".container").toggleClass("reveal");
-            }, 3000);
-          }, 500);
-          clearInterval(periodicCall);
-        }
-      }, 1000);
-
-    });
-  </script>
+  <script src="{{ url_for('static', filename='js/display_tweets.js') }}" type="text/javascript"></script>
 </body>
 </html>

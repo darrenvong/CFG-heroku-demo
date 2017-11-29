@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>CF:G Sheffield Ambassador Appreciation App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}">
+{% include "header.html" %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 <body>
   <img src="{{ url_for('static', filename='cfg_logo.png') }}">
@@ -30,25 +25,6 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      const MAX_PARAGRAPHS = 4;
-      let counter = 0;
-
-      let periodicCall = setInterval(function() {
-        counter++;
-        console.log(counter);
-        if (counter <= MAX_PARAGRAPHS) {
-          $("#description p:nth-of-type("+counter+")").toggleClass("reveal");
-        }
-        else {
-          if ( !$("a.waves-effect").hasClass("reveal") ) {
-            $("a.waves-effect").addClass("reveal");
-          }
-          clearInterval(periodicCall);
-        }
-      }, 2000);
-    });
-  </script>
+  <script src="{{ url_for('static', filename='js/index.js') }}" type="text/javascript"></script>
 </body>
 </html>
