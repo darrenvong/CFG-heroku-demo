@@ -21,7 +21,6 @@ Therefore, the quality of the app is not perfect ~~(e.g. it is not fully mobile 
    flask
    requests
    tweepy
-   requests
    ```
    
    * In `app.py` (or whatever you named your main file containing the Flask code), add the following line to the top
